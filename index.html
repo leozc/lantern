@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Lantern : Maven Plugin for java static analysis " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Lantern</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/leozc/lantern">View on GitHub</a>
+
+          <h1 id="project_title">Lantern</h1>
+          <h2 id="project_tagline">Maven Plugin for java static analysis </h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/leozc/lantern/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/leozc/lantern/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>lantern</h1>
+
+<p>Maven Plugin for java static analysis</p>
+
+<p>To build</p>
+
+<blockquote>
+<p><code>mvn package install</code></p>
+</blockquote>
+
+<p>To run with default rule:</p>
+
+<blockquote>
+<p><code>mvn com.leozc:lantern:blacklist -Dlantern.rulefile="samplerule.json"</code></p>
+</blockquote>
+
+<p>It generates the scan result in latern.blacklist.out, it contains lines of records look like this:</p>
+
+<blockquote>
+<p>commons-lang3-3.1.jar:SystemUtils.java:L0:org/apache/commons/lang3/SystemUtils.getSystemProperty@(Ljava/lang/String;)Ljava/lang/String;:calls java/io/PrintStream.void println(String)</p>
+</blockquote>
+
+<p>You can use grep/cut and further process the result.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Lantern maintained by <a href="https://github.com/leozc">leozc</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
