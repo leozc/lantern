@@ -22,7 +22,7 @@ import java.util.List;
 @Mojo(name="blacklist")
 public class Blacklister extends AbstractMojo {
 
-    @Parameter(required = true,property = "latern.rulefile")
+    @Parameter(required = true,property = "lantern.rulefile")
     private String rulefile = null;
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
