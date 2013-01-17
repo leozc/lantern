@@ -1,4 +1,4 @@
-latern
+lantern
 ======
 
 Maven Plugin for java static analysis
