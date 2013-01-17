@@ -59,8 +59,9 @@ public class Blacklister extends AbstractMojo {
             System.out.println("====== Found the dependency folder " + scantargetJars.length + " scantargetJars found.");
             System.out.println(scantargetJars[0].getAbsolutePath());
             String outputfilename = "lantern.blacklist.out";
+            FileWriter fw = null;
             try{
-                FileWriter fw = new FileWriter(outputfilename,false);
+                fw = new FileWriter(outputfilename,false);
 
                 for(RuleEntry r : rules){
                     for(File jarpath:scantargetJars)
@@ -82,9 +83,17 @@ public class Blacklister extends AbstractMojo {
                             System.err.println();
                         }
                 }
+
                 System.out.println(outputfilename +" is generated.");
             }   catch (IOException ioe){
                 throw new MojoFailureException("Fail to write output log");
+            }   finally {
+               if(fw!=null)
+                   try {
+                       fw.close();
+                   } catch (IOException e) {
+                       e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                   }
             }
 
         }
