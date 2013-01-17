@@ -53,8 +53,9 @@ public class Blacklister extends AbstractMojo {
                     return name.toLowerCase().endsWith(".jar");
                 }
             });
-
-
+            if(scantargetJars.length==0){
+                throw new MojoFailureException("No jar found ? please run 'mvn dependency:copy-dependencies' to pull down the dependencies to target/dependency folder before running this plugin");
+            }
             System.out.println("====== Found the dependency folder " + scantargetJars.length + " scantargetJars found.");
             System.out.println(scantargetJars[0].getAbsolutePath());
             String outputfilename = "lantern.blacklist.out";

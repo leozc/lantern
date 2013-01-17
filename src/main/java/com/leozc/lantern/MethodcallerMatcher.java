@@ -1,5 +1,5 @@
 package com.leozc.lantern;
-import com.sun.xml.internal.ws.org.objectweb.asm.Label;
+import  org.objectweb.asm.Label;
 import org.apache.commons.lang3.StringUtils;
 import org.objectweb.asm.ClassAdapter;
 import org.objectweb.asm.ClassReader;
