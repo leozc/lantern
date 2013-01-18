@@ -88,13 +88,13 @@ public class FindcallMojo extends AbstractMojo {
 
             try{
                 fw = new FileWriter(outputfilename,false);
-                for(RuleEntry r : rules){
-                    for(File jarpath:files)
+                for(RuleEntry r : rules){   // for each rule
+                    for(File artifact:files) // each files
                         try {
                             MethodcallerMatcher app = new MethodcallerMatcher();
-                            app.findCallingMethodsInJar(jarpath.getAbsolutePath(),r.className,r.methodDescriptor);
+                            app.findCallingMethodsInJar(artifact.getAbsolutePath(),r.className,r.methodDescriptor);
                             for (MethodcallerMatcher.Callee c : app.getCallees()) {
-                                String outStr = p.getArtifactId()+":"+jarpath.getName()+":"+c.source+":L"+c.line+":"+c.className+"."+c.methodName+"@"+c.methodDesc + ":calls "+r.className+"."+r.methodDescriptor;
+                                String outStr = p.getArtifactId()+":"+artifact.getName()+":"+c.source+":L"+c.line+":"+c.className+"."+c.methodName+"@"+c.methodDesc + ":calls "+r.className+"."+r.methodDescriptor;
 
                                 getLog().info("@@:" + c.source + ":L" + c.line + ":" + ":calls " + r.className);
                                 fw.write(outStr+"\n");
@@ -105,7 +105,7 @@ public class FindcallMojo extends AbstractMojo {
                                     app.getTargetMethod().getName() + " " + app.getTargetMethod().getDescriptor());
 
                         } catch (Exception e) {
-                            getLog().error("Fail to process"+jarpath.getName(),e);
+                            getLog().error("Fail to process"+artifact.getName(),e);
                         }
                 }
 

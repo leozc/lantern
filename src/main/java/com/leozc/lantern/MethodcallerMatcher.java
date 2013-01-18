@@ -123,14 +123,14 @@ public class MethodcallerMatcher {
 
         while (entries.hasMoreElements()) {
             JarEntry entry = entries.nextElement();
-
             if (entry.getName().endsWith(".class")) {
                 InputStream stream = new BufferedInputStream(jarFile.getInputStream(entry), 1024);
                 ClassReader reader = new ClassReader(stream);
-
+                try{
                 reader.accept(cv, 0);
-
-                stream.close();
+                }finally {
+                    stream.close();
+                }
             }
         }
     }
