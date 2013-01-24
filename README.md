@@ -16,8 +16,8 @@ It generates the scan result in latern.blacklist.out, it contains lines of recor
 
 To include the plugin in you normal maven build process (mvn 3.01+), please put the follow sections in the plugins.<br/>
 The first part is the maven dependencies tree, which we need that for actual work, second part is the actual configuration for the plugin.
->
-<pre><code>  &lt;plugin&gt;
+> <pre><code>  
+	&lt;plugin&gt;
     &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
     &lt;artifactId&gt;maven-dependency-plugin&lt;/artifactId&gt;
     &lt;executions&gt;
@@ -36,7 +36,9 @@ The first part is the maven dependencies tree, which we need that for actual wor
       &lt;/execution&gt;
     &lt;/executions&gt;
   &lt;/plugin&gt;
+</code></pre>
 
+> <pre><code>
   &lt;plugin&gt;
     &lt;groupId&gt;com.leozc&lt;/groupId&gt;
     &lt;artifactId&gt;lantern&lt;/artifactId&gt;
