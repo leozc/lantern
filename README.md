@@ -1,18 +1,20 @@
 lantern
 ======
 
-Maven Plugin for java static analysis
+Maven Plugin for java static analysis tool to find out all the callers calling a particular method.<br/>
+The method you want to hunt is defined in latern.rulefile (defined by latern.rulefile or rulefile in mvn config).<br/>
+There is a switch -Dlantern.includedependency (or rulefile in mvn config) to instruct the plugin to scan the dependencies of the project in additional to the project itself.
+
 
 To build
-> `mvn package install``
+> `mvn package install`
 
-To run with default rule:
+To run with default rule from CLI:
 > `mvn com.leozc:lantern:blacklist -Dlantern.rulefile="samplerule.json"`
 
-It generates the scan result in latern.blacklist.out, it contains lines of records look like this:
-> `commons-lang3-3.1.jar:SystemUtils.java:L0:org/apache/commons/lang3/SystemUtils.getSystemProperty@(Ljava/lang/String;)Ljava/lang/String;:calls java/io/PrintStream.void println(String)`
+It generates the scan result in YOURARTIFACT.latern.*.out, it contains lines of records, ':' deminated, which is cut and grep friendly. (You can import into excel too.)
+>`commons-lang3-3.1.jar:SystemUtils.java:L0:org/apache/commons/lang3/SystemUtils.getSystemProperty@(Ljava/lang/String;)Ljava/lang/String;:calls java/io/PrintStream.void println(String)`
 
->>You can use grep/cut and further process the result.
 
 To include the plugin in you normal maven build process (mvn 3.01+), please put the follow sections in the plugins.<br/>
 The first part is the maven dependencies tree, which we need that for actual work, second part is the actual configuration for the plugin.
